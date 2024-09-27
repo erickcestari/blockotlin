@@ -11,7 +11,7 @@ development.
 - ORM SQL Framework -> Exposed
 - Ktor Client -> For External API calls
 - Build Tool -> Gradle
-- Server -> Tomcat
+- Server -> netty
 - Docker support for containerization
 - POSTMAN Collection for testing API
 - Gradle 7, JDK (Amazon Coretto 11)

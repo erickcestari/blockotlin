@@ -26,7 +26,7 @@ import org.koin.logger.SLF4JLogger
 import org.slf4j.event.Level
 import java.text.DateFormat
 
-fun main(args: Array<String>): Unit = io.ktor.server.tomcat.EngineMain.main(args)
+fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused") // Referenced in application.conf
 fun Application.module(testing: Boolean = false) {
