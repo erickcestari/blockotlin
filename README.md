@@ -16,6 +16,39 @@ development.
 - POSTMAN Collection for testing API
 - Gradle 7, JDK (Amazon Coretto 11)
 
+# How to run
+
+## Prerequisites
+
+1. **Java JDK**: Ensure you have Java JDK version 8 or higher installed.
+
+2. **Gradle**: https://gradle.org/install
+
+## Steps to Run the Project
+
+1. **Clone the Repository**:
+    ```sh
+    git clone https://github.com/erickcestari/blockotlin
+    cd blockotlin
+    ```
+
+2. **Generate Gradle Wrapper**:
+    ```sh
+    gradle wrapper
+    ```
+
+3. **Run the Project**:
+    On Windows:
+    ```sh
+    gradlew.bat run
+    ```
+    On macOS/Linux:
+    ```sh
+    ./gradlew run
+    ```
+
+This will start the Ktor server, and you can access the API at `http://localhost:8081`.
+
 # Architecture
 ![github (6)](https://user-images.githubusercontent.com/86873858/131125468-99d372c5-2b55-473b-9f12-0fbd2c7e9bf7.png)
 
