@@ -1,4 +1,4 @@
-package com.selimatasoy.extensions
+package com.blockotlin.extensions
 
 import com.typesafe.config.ConfigFactory
 import org.jetbrains.exposed.sql.Database

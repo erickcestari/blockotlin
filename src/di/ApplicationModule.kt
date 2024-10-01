@@ -1,9 +1,9 @@
-package com.selimatasoy.di
+package com.blockotlin.di
 
-import com.selimatasoy.httpclient.HttpService
-import com.selimatasoy.httpclient.HttpServiceImpl
-import com.selimatasoy.jwt.JwtManager
-import com.selimatasoy.jwt.JwtManagerImpl
+import com.blockotlin.httpclient.HttpService
+import com.blockotlin.httpclient.HttpServiceImpl
+import com.blockotlin.jwt.JwtManager
+import com.blockotlin.jwt.JwtManagerImpl
 import com.typesafe.config.ConfigFactory
 import org.koin.core.qualifier.named
 import org.koin.dsl.bind

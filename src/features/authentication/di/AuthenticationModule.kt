@@ -1,11 +1,11 @@
-package com.selimatasoy.features.authentication.di
+package com.blockotlin.features.authentication.di
 
-import com.selimatasoy.features.authentication.dao.AuthenticationDao
-import com.selimatasoy.features.authentication.dao.AuthenticationDaoImpl
-import com.selimatasoy.features.authentication.dao.mapper.AuthenticationMapper
-import com.selimatasoy.features.authentication.dao.mapper.AuthenticationMapperImpl
-import com.selimatasoy.features.authentication.data.AuthenticationData
-import com.selimatasoy.features.authentication.data.AuthenticationDataImpl
+import com.blockotlin.features.authentication.dao.AuthenticationDao
+import com.blockotlin.features.authentication.dao.AuthenticationDaoImpl
+import com.blockotlin.features.authentication.dao.mapper.AuthenticationMapper
+import com.blockotlin.features.authentication.dao.mapper.AuthenticationMapperImpl
+import com.blockotlin.features.authentication.data.AuthenticationData
+import com.blockotlin.features.authentication.data.AuthenticationDataImpl
 import org.koin.dsl.bind
 import org.koin.dsl.module
 

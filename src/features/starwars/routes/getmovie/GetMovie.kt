@@ -1,6 +1,6 @@
-package com.selimatasoy.features.starwars.routes.getmovie
+package com.blockotlin.features.starwars.routes.getmovie
 
-import com.selimatasoy.features.starwars.data.StarWarsData
+import com.blockotlin.features.starwars.data.StarWarsData
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*

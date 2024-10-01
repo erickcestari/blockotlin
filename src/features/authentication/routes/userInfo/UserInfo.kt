@@ -1,8 +1,8 @@
-package com.selimatasoy.features.authentication.routes.userInfo
+package com.blockotlin.features.authentication.routes.userInfo
 
-import com.selimatasoy.extensions.getAuthorizationTokenWithoutBearer
-import com.selimatasoy.features.authentication.data.AuthenticationData
-import com.selimatasoy.jwt.JwtManager
+import com.blockotlin.extensions.getAuthorizationTokenWithoutBearer
+import com.blockotlin.features.authentication.data.AuthenticationData
+import com.blockotlin.jwt.JwtManager
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*

@@ -1,7 +1,7 @@
-package com.selimatasoy.features.authentication.dao
+package com.blockotlin.features.authentication.dao
 
-import com.selimatasoy.features.authentication.model.LoginRequestDto
-import com.selimatasoy.features.authentication.model.UserInfoDto
+import com.blockotlin.features.authentication.model.LoginRequestDto
+import com.blockotlin.features.authentication.model.UserInfoDto
 
 interface AuthenticationDao {
     fun login(request: LoginRequestDto): Boolean

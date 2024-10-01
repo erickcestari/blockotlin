@@ -1,7 +1,7 @@
-package com.selimatasoy.features.starwars.remote
+package com.blockotlin.features.starwars.remote
 
-import com.selimatasoy.features.starwars.model.Movie
-import com.selimatasoy.httpclient.HttpServiceImpl
+import com.blockotlin.features.starwars.model.Movie
+import com.blockotlin.httpclient.HttpServiceImpl
 import io.ktor.client.call.*
 import io.ktor.client.request.*
 

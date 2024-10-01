@@ -1,6 +1,6 @@
-package com.selimatasoy.features.starwars.data
+package com.blockotlin.features.starwars.data
 
-import com.selimatasoy.features.starwars.model.Movie
+import com.blockotlin.features.starwars.model.Movie
 
 interface StarWarsData {
     suspend fun getMovie(): Movie

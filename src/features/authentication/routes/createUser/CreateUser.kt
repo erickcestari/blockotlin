@@ -1,7 +1,7 @@
-package com.selimatasoy.features.authentication.routes.createUser
+package com.blockotlin.features.authentication.routes.createUser
 
-import com.selimatasoy.features.authentication.data.AuthenticationData
-import com.selimatasoy.features.authentication.model.UserInfoDto
+import com.blockotlin.features.authentication.data.AuthenticationData
+import com.blockotlin.features.authentication.model.UserInfoDto
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*

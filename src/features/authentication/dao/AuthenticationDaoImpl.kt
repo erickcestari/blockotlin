@@ -1,10 +1,10 @@
-package com.selimatasoy.features.authentication.dao
+package com.blockotlin.features.authentication.dao
 
-import com.selimatasoy.extensions.connectToExampleDatabase
-import com.selimatasoy.features.authentication.dao.entity.User
-import com.selimatasoy.features.authentication.dao.mapper.AuthenticationMapper
-import com.selimatasoy.features.authentication.model.LoginRequestDto
-import com.selimatasoy.features.authentication.model.UserInfoDto
+import com.blockotlin.extensions.connectToExampleDatabase
+import com.blockotlin.features.authentication.dao.entity.User
+import com.blockotlin.features.authentication.dao.mapper.AuthenticationMapper
+import com.blockotlin.features.authentication.model.LoginRequestDto
+import com.blockotlin.features.authentication.model.UserInfoDto
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 

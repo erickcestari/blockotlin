@@ -1,4 +1,4 @@
-package com.selimatasoy.httpclient
+package com.blockotlin.httpclient
 
 import io.ktor.client.*
 

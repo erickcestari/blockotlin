@@ -1,9 +1,9 @@
-package com.selimatasoy.features.starwars.di
+package com.blockotlin.features.starwars.di
 
-import com.selimatasoy.features.starwars.data.StarWarsData
-import com.selimatasoy.features.starwars.data.StarWarsDataImpl
-import com.selimatasoy.features.starwars.remote.StarWarsRemote
-import com.selimatasoy.features.starwars.remote.StarWarsRemoteImpl
+import com.blockotlin.features.starwars.data.StarWarsData
+import com.blockotlin.features.starwars.data.StarWarsDataImpl
+import com.blockotlin.features.starwars.remote.StarWarsRemote
+import com.blockotlin.features.starwars.remote.StarWarsRemoteImpl
 import org.koin.dsl.bind
 import org.koin.dsl.module
 

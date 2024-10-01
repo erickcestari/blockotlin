@@ -1,4 +1,4 @@
-package com.selimatasoy.features.starwars.model
+package com.blockotlin.features.starwars.model
 
 data class Movie(
     val title: String,

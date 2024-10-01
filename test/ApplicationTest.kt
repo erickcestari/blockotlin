@@ -1,4 +1,4 @@
-package com.selimatasoy
+package com.blockotlin
 
 import io.ktor.application.*
 import io.ktor.response.*

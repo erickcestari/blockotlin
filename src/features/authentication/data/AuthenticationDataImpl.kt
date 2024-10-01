@@ -1,9 +1,9 @@
-package com.selimatasoy.features.authentication.data
+package com.blockotlin.features.authentication.data
 
-import com.selimatasoy.features.authentication.dao.AuthenticationDao
-import com.selimatasoy.features.authentication.model.LoginRequestDto
-import com.selimatasoy.features.authentication.model.UserInfoDto
-import com.selimatasoy.jwt.JwtManager
+import com.blockotlin.features.authentication.dao.AuthenticationDao
+import com.blockotlin.features.authentication.model.LoginRequestDto
+import com.blockotlin.features.authentication.model.UserInfoDto
+import com.blockotlin.jwt.JwtManager
 
 class AuthenticationDataImpl(private val authenticationDao: AuthenticationDao, private val jwtManager: JwtManager) :
     AuthenticationData {

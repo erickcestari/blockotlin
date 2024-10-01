@@ -1,9 +1,9 @@
-package com.selimatasoy.jwt
+package com.blockotlin.jwt
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTVerifier
 import com.auth0.jwt.algorithms.Algorithm
-import com.selimatasoy.features.authentication.model.LoginRequestDto
+import com.blockotlin.features.authentication.model.LoginRequestDto
 import org.koin.core.component.KoinComponent
 import java.util.*
 

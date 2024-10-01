@@ -1,6 +1,6 @@
-package com.selimatasoy.features.healthcheck.routes
+package com.blockotlin.features.healthcheck.routes
 
-import com.selimatasoy.features.healthcheck.routes.gethealthcheck.getHealthCheck
+import com.blockotlin.features.healthcheck.routes.gethealthcheck.getHealthCheck
 import io.ktor.server.application.*
 import io.ktor.server.routing.*
 

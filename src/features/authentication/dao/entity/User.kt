@@ -1,4 +1,4 @@
-package com.selimatasoy.features.authentication.dao.entity
+package com.blockotlin.features.authentication.dao.entity
 
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.javatime.date

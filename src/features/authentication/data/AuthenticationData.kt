@@ -1,7 +1,7 @@
-package com.selimatasoy.features.authentication.data
+package com.blockotlin.features.authentication.data
 
-import com.selimatasoy.features.authentication.model.LoginRequestDto
-import com.selimatasoy.features.authentication.model.UserInfoDto
+import com.blockotlin.features.authentication.model.LoginRequestDto
+import com.blockotlin.features.authentication.model.UserInfoDto
 
 interface AuthenticationData {
     fun login(request: LoginRequestDto): String

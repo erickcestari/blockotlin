@@ -1,4 +1,4 @@
-package com.selimatasoy.extensions
+package com.blockotlin.extensions
 
 import io.ktor.server.application.*
 

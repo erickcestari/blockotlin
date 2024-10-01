@@ -1,7 +1,7 @@
-package com.selimatasoy.features.healthcheck.di
+package com.blockotlin.features.healthcheck.di
 
-import com.selimatasoy.features.healthcheck.data.HealthCheckDataImpl
-import com.selimatasoy.features.healthcheck.data.HealthCheckData
+import com.blockotlin.features.healthcheck.data.HealthCheckDataImpl
+import com.blockotlin.features.healthcheck.data.HealthCheckData
 import org.koin.dsl.bind
 import org.koin.dsl.module
 

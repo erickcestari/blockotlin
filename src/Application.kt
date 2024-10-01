@@ -1,15 +1,15 @@
-package com.selimatasoy
+package com.blockotlin
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.MissingKotlinParameterException
-import com.selimatasoy.di.applicationModule
-import com.selimatasoy.errors.GenericServerError
-import com.selimatasoy.features.authentication.di.authenticationModule
-import com.selimatasoy.features.healthcheck.di.healthCheckModule
-import com.selimatasoy.features.starwars.di.starWarsModule
-import com.selimatasoy.jwt.JwtManager
+import com.blockotlin.di.applicationModule
+import com.blockotlin.errors.GenericServerError
+import com.blockotlin.features.authentication.di.authenticationModule
+import com.blockotlin.features.healthcheck.di.healthCheckModule
+import com.blockotlin.features.starwars.di.starWarsModule
+import com.blockotlin.jwt.JwtManager
 import io.ktor.http.*
 import io.ktor.serialization.jackson.*
 import io.ktor.server.application.*

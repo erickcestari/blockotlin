@@ -1,4 +1,4 @@
-package com.selimatasoy.features.authentication.model
+package com.blockotlin.features.authentication.model
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import java.time.LocalDate

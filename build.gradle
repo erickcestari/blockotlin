@@ -20,7 +20,7 @@ application {
     mainClass = "io.ktor.server.netty.EngineMain"
 }
 
-group 'com.selimatasoy'
+group 'com.blockotlin'
 version '0.0.1'
 
 sourceSets {

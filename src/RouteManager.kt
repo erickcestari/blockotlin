@@ -1,8 +1,8 @@
-package com.selimatasoy
+package com.blockotlin
 
-import com.selimatasoy.features.authentication.routes.authenticationRoutes
-import com.selimatasoy.features.healthcheck.routes.healthCheckRoutes
-import com.selimatasoy.features.starwars.routes.starWarsRoutes
+import com.blockotlin.features.authentication.routes.authenticationRoutes
+import com.blockotlin.features.healthcheck.routes.healthCheckRoutes
+import com.blockotlin.features.starwars.routes.starWarsRoutes
 import io.ktor.server.application.*
 
 fun Application.routes() {

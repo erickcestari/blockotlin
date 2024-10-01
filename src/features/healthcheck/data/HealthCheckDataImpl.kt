@@ -1,4 +1,4 @@
-package com.selimatasoy.features.healthcheck.data
+package com.blockotlin.features.healthcheck.data
 
 class HealthCheckDataImpl : HealthCheckData {
     override fun getHealthCheckStatus(): String {
