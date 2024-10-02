@@ -39,10 +39,20 @@ fun Application.module(testing: Boolean = false) {
     val jwtManager: JwtManager by inject(JwtManager::class.java)
 
     install(Authentication) {
-        jwt {
+        jwt("auth-jwt") {
             verifier(jwtManager.getVerifier())
             validate {
                 UserIdPrincipal(it.payload.getClaim("email").asString())
+            }
+        }
+        jwt("auth-admin") {
+            verifier(jwtManager.getVerifier())
+            validate {
+                if (it.payload.getClaim("role").asString() == "ADMIN") {
+                    UserIdPrincipal(it.payload.getClaim("email").asString())
+                } else {
+                    null
+                }
             }
         }
     }

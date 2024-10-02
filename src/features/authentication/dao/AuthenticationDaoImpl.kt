@@ -17,6 +17,7 @@ class AuthenticationDaoImpl(private val mapper: AuthenticationMapper) : Authenti
 
         val userDao = transaction {
             addLogger(StdOutSqlLogger)
+            SchemaUtils.create(User)
             return@transaction User.select { User.email eq request.email }.firstOrNull()
         }
 

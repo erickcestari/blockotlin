@@ -7,7 +7,7 @@ import io.ktor.server.routing.*
 
 fun Application.starWarsRoutes() {
     routing {
-        authenticate {
+        authenticate("auth-jwt") {
             getMovie()
         }
     }
