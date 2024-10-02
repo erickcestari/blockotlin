@@ -6,7 +6,6 @@ import com.blockotlin.features.authentication.dao.entity.User
 import com.blockotlin.features.authentication.dao.mapper.AuthenticationMapper
 import com.blockotlin.features.authentication.model.LoginRequestDto
 import com.blockotlin.features.authentication.model.UserInfoDto
-import com.fasterxml.jackson.module.kotlin.MissingKotlinParameterException
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.mindrot.jbcrypt.BCrypt

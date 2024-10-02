@@ -1,7 +1,6 @@
 package com.blockotlin.jwt
 
 import com.auth0.jwt.JWTVerifier
-import com.blockotlin.features.authentication.model.LoginRequestDto
 import com.blockotlin.features.authentication.model.UserInfoDto
 import java.util.*
 
