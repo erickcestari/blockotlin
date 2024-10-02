@@ -11,6 +11,7 @@ import com.blockotlin.features.healthcheck.di.healthCheckModule
 import com.blockotlin.features.starwars.di.starWarsModule
 import com.blockotlin.jwt.JwtManager
 import io.ktor.http.*
+import io.ktor.http.auth.*
 import io.ktor.serialization.jackson.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -44,6 +45,16 @@ fun Application.module(testing: Boolean = false) {
             validate {
                 UserIdPrincipal(it.payload.getClaim("email").asString())
             }
+
+            authHeader { call ->
+                val cookieValue = call.request.cookies["token"] ?: return@authHeader null
+                try {
+                    parseAuthorizationHeader("Bearer $cookieValue")
+                } catch (cause: IllegalArgumentException) {
+                    cause.message
+                    null
+                }
+            }
         }
         jwt("auth-admin") {
             verifier(jwtManager.getVerifier())
@@ -51,6 +62,16 @@ fun Application.module(testing: Boolean = false) {
                 if (it.payload.getClaim("role").asString() == "ADMIN") {
                     UserIdPrincipal(it.payload.getClaim("email").asString())
                 } else {
+                    null
+                }
+            }
+
+            authHeader { call ->
+                val cookieValue = call.request.cookies["token"] ?: return@authHeader null
+                try {
+                    parseAuthorizationHeader("Bearer $cookieValue")
+                } catch (cause: IllegalArgumentException) {
+                    cause.message
                     null
                 }
             }
