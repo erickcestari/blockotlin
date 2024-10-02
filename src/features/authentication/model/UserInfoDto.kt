@@ -1,5 +1,6 @@
 package com.blockotlin.features.authentication.model
 
+import com.blockotlin.features.authentication.dao.entity.Role
 import com.fasterxml.jackson.annotation.JsonFormat
 import java.time.LocalDate
 
@@ -10,4 +11,5 @@ data class UserInfoDto(
     val email: String,
     val id: Long? = null,
     var password: String? = null,
+    val role: String,
 )

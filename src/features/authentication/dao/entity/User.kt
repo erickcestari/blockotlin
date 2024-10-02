@@ -9,7 +9,8 @@ object User : Table("user") {
     val surname = varchar("Surname", 50)
     val birthDate = date("birth_date")
     val email = varchar("Email", 50)
-    val password = varchar("Password",20)
+    val password = varchar("Password",400)
+    val role = enumeration("role", Role::class)
 
     override val primaryKey = PrimaryKey(id, email)
 }

@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTVerifier
 import com.auth0.jwt.algorithms.Algorithm
 import com.blockotlin.features.authentication.model.LoginRequestDto
+import com.blockotlin.features.authentication.model.UserInfoDto
 import org.koin.core.component.KoinComponent
 import java.util.*
 
@@ -14,9 +15,11 @@ class JwtManagerImpl(secret: String) : JwtManager, KoinComponent {
 
     override fun getVerifier(): JWTVerifier = JWT.require(algorithm).build()
 
-    override fun generateToken(loginRequestDto: LoginRequestDto): String = JWT.create()
+    override fun generateToken(userInfoDto: UserInfoDto): String = JWT.create()
         .withSubject("Authentication")
-        .withClaim("email", loginRequestDto.email)
+        .withClaim("email", userInfoDto.id)
+        .withClaim("email", userInfoDto.email)
+        .withClaim("role", userInfoDto.role)
         .withExpiresAt(getExpiration())
         .sign(algorithm)
 

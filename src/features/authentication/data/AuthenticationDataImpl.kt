@@ -8,8 +8,9 @@ import com.blockotlin.jwt.JwtManager
 class AuthenticationDataImpl(private val authenticationDao: AuthenticationDao, private val jwtManager: JwtManager) :
     AuthenticationData {
     override fun login(request: LoginRequestDto): String {
-        if (authenticationDao.login(request)) {
-            return jwtManager.generateToken(request)
+        val userInfo = authenticationDao.login(request)
+        if (userInfo != null) {
+            return jwtManager.generateToken(userInfo)
         } else {
             throw Exception("There is no such user")
         }

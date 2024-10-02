@@ -10,7 +10,8 @@ class AuthenticationMapperImpl : AuthenticationMapper {
         email = resultRow[User.email],
         name = resultRow[User.name],
         surname = resultRow[User.surname],
-        birthDate = resultRow[User.birthDate]
+        birthDate = resultRow[User.birthDate],
+        role = resultRow[User.role].toString(),
     )
 
 }
