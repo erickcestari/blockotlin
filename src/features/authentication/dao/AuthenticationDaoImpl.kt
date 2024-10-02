@@ -6,9 +6,11 @@ import com.blockotlin.features.authentication.dao.entity.User
 import com.blockotlin.features.authentication.dao.mapper.AuthenticationMapper
 import com.blockotlin.features.authentication.model.LoginRequestDto
 import com.blockotlin.features.authentication.model.UserInfoDto
+import com.fasterxml.jackson.module.kotlin.MissingKotlinParameterException
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.mindrot.jbcrypt.BCrypt
+import java.security.InvalidParameterException
 
 class AuthenticationDaoImpl(private val mapper: AuthenticationMapper) : AuthenticationDao {
 
@@ -55,7 +57,8 @@ class AuthenticationDaoImpl(private val mapper: AuthenticationMapper) : Authenti
             return@transaction User.select { User.email eq userInfoDto.email }.count()
         } > 0
 
-        if (userEmailExists) {throw Exception("Something went wrong")}
+        if (userEmailExists) {throw InvalidParameterException("Email already exists")
+        }
 
         val passwordHash = BCrypt.hashpw(userInfoDto.password, BCrypt.gensalt())
 

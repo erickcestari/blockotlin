@@ -4,6 +4,7 @@ import com.blockotlin.features.authentication.dao.AuthenticationDao
 import com.blockotlin.features.authentication.model.LoginRequestDto
 import com.blockotlin.features.authentication.model.UserInfoDto
 import com.blockotlin.jwt.JwtManager
+import java.security.InvalidParameterException
 
 class AuthenticationDataImpl(private val authenticationDao: AuthenticationDao, private val jwtManager: JwtManager) :
     AuthenticationData {
@@ -12,7 +13,7 @@ class AuthenticationDataImpl(private val authenticationDao: AuthenticationDao, p
         if (userInfo != null) {
             return jwtManager.generateToken(userInfo)
         } else {
-            throw Exception("There is no such user")
+            throw InvalidParameterException("There is no such user")
         }
     }
 

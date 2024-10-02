@@ -25,6 +25,7 @@ import org.koin.java.KoinJavaComponent.inject
 import org.koin.ktor.plugin.Koin
 import org.koin.logger.SLF4JLogger
 import org.slf4j.event.Level
+import java.security.InvalidParameterException
 import java.text.DateFormat
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -92,6 +93,11 @@ fun Application.module(testing: Boolean = false) {
         exception<Throwable> { call, cause ->
             call.response.status(HttpStatusCode.InternalServerError)
             call.respond(GenericServerError(500, cause.message.toString()))
+            throw cause
+        }
+        exception<InvalidParameterException> { call, cause ->
+            call.response.status(HttpStatusCode.BadRequest)
+            call.respond(GenericServerError(400, cause.message.toString()))
             throw cause
         }
         exception<MissingKotlinParameterException> { call, cause ->
