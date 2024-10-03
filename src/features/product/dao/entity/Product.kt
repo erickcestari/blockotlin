@@ -1,14 +1,13 @@
-package com.blockotlin.features.authentication.dao.entity
+package com.blockotlin.features.product.dao.entity
 
 import org.jetbrains.exposed.sql.Table
 
-object Crypto : Table("crypto") {
+object Product : Table("crypto") {
     val id = long("id").autoIncrement().uniqueIndex()
     val name = varchar("name", 255)
-    val symbol = varchar("symbol", 255)
     val price = long("price")
     val description = varchar("description", 555)
-
+    val image = varchar("image", 255).nullable()
 
     override val primaryKey = PrimaryKey(id)
 }

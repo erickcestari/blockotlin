@@ -7,8 +7,8 @@ import com.fasterxml.jackson.module.kotlin.MissingKotlinParameterException
 import com.blockotlin.di.applicationModule
 import com.blockotlin.errors.GenericServerError
 import com.blockotlin.features.authentication.di.authenticationModule
-import com.blockotlin.features.crypto.di.cryptoModule
 import com.blockotlin.features.healthcheck.di.healthCheckModule
+import com.blockotlin.features.product.di.productModule
 import com.blockotlin.features.starwars.di.starWarsModule
 import com.blockotlin.jwt.JwtManager
 import io.ktor.http.*
@@ -36,7 +36,7 @@ fun Application.module(testing: Boolean = false) {
 
     install(Koin) {
         SLF4JLogger()
-        modules(applicationModule, authenticationModule, healthCheckModule, starWarsModule, cryptoModule)
+        modules(applicationModule, authenticationModule, healthCheckModule, starWarsModule, productModule)
     }
 
     val jwtManager: JwtManager by inject(JwtManager::class.java)
