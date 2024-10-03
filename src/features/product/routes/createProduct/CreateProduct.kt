@@ -13,7 +13,7 @@ fun Route.createProduct() {
     val productData: ProductData by inject(ProductData::class.java)
     post("/api/v1/product/createProduct") {
 
-        productData.createProduct(call.receive<CreateProductDto>())
-        call.respond(HttpStatusCode.OK)
+        val id = productData.createProduct(call.receive<CreateProductDto>())
+        call.respond(HttpStatusCode.Created, mapOf("id" to id))
     }
 }

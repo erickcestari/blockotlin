@@ -10,11 +10,9 @@ import io.ktor.server.routing.*
 fun Application.authenticationRoutes() {
     routing {
         loginUser()
+        createUser()
         authenticate("auth-jwt") {
             userInfo()
-        }
-        authenticate("auth-admin") {
-            createUser()
         }
     }
 }

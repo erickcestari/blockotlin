@@ -9,5 +9,5 @@ import org.koin.dsl.module
 
 val productModule = module {
     single { ProductDataImpl(get()) } bind ProductData::class
-    single { ProductDaoImpl(get()) } bind ProductDao::class
+    single { ProductDaoImpl() } bind ProductDao::class
 }

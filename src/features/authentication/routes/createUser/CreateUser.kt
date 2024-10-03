@@ -11,9 +11,9 @@ import org.koin.java.KoinJavaComponent.inject
 
 fun Route.createUser() {
     val authenticationData: AuthenticationData by inject(AuthenticationData::class.java)
-    post("/api/v1/authentication/createUser") {
+    post("/public-api/v1/authentication/createUser") {
 
         authenticationData.createUser(call.receive<UserInfoDto>())
-        call.respond(HttpStatusCode.OK)
+        call.respond(HttpStatusCode.Created)
     }
 }
