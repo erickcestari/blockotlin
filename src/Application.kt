@@ -9,7 +9,6 @@ import com.blockotlin.errors.GenericServerError
 import com.blockotlin.features.authentication.di.authenticationModule
 import com.blockotlin.features.healthcheck.di.healthCheckModule
 import com.blockotlin.features.product.di.productModule
-import com.blockotlin.features.starwars.di.starWarsModule
 import com.blockotlin.jwt.JwtManager
 import io.ktor.http.*
 import io.ktor.http.auth.*
@@ -36,7 +35,7 @@ fun Application.module(testing: Boolean = false) {
 
     install(Koin) {
         SLF4JLogger()
-        modules(applicationModule, authenticationModule, healthCheckModule, starWarsModule, productModule)
+        modules(applicationModule, authenticationModule, healthCheckModule, productModule)
     }
 
     val jwtManager: JwtManager by inject(JwtManager::class.java)
