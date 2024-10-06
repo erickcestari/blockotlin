@@ -6,7 +6,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      - DB_URL=jdbc:postgresql://localhost:5432/ktor
+      - DB_URL=jdbc:postgresql://db:5432/ktor
       - DB_DRIVER=org.postgresql.Driver
       - DB_USER=postgres
       - DB_PASSWORD=123456
@@ -16,8 +16,6 @@ services:
       - JWT_REALM=blockotlin.blockotlin-api
     depends_on:
       - db
-    network_mode: host
-
   db:
     image: postgres:15
     environment:
@@ -28,7 +26,5 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    network_mode: host
-
 volumes:
   postgres_data:
