@@ -71,8 +71,8 @@ class AuthenticationDaoImpl(private val mapper: AuthenticationMapper) : Authenti
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(User)
             User.insert {
-                it[name] = userInfoDto.name
-                it[surname] = userInfoDto.surname
+                it[firstName] = userInfoDto.firstName
+                it[lastName] = userInfoDto.lastName
                 it[email] = userInfoDto.email
                 it[birthDate] = userInfoDto.birthDate
                 it[password] = passwordHash

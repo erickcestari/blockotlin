@@ -5,8 +5,8 @@ import org.jetbrains.exposed.sql.javatime.date
 
 object User : Table("user") {
     val id = long("id").autoIncrement().uniqueIndex()
-    val name = varchar("Name", 50)
-    val surname = varchar("Surname", 50)
+    val firstName = varchar("FirstName", 50)
+    val lastName = varchar("LastName", 50)
     val birthDate = date("birth_date")
     val email = varchar("Email", 50)
     val password = varchar("Password",400)

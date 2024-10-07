@@ -9,8 +9,8 @@ class AuthenticationMapperImpl : AuthenticationMapper {
     override fun fromUserDaoToUserInfo(resultRow: ResultRow) = UserInfoDto(
         id = resultRow[User.id],
         email = resultRow[User.email],
-        name = resultRow[User.name],
-        surname = resultRow[User.surname],
+        firstName = resultRow[User.firstName],
+        lastName = resultRow[User.lastName],
         birthDate = resultRow[User.birthDate],
         role = resultRow[User.role].toString(),
     )
