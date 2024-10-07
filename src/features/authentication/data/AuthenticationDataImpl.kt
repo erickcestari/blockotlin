@@ -24,4 +24,10 @@ class AuthenticationDataImpl(private val authenticationDao: AuthenticationDao, p
     override fun createUser(userInfoDto: UserInfoDto) {
         return authenticationDao.createUser(userInfoDto)
     }
+
+    override fun signIn(userInfoDto: UserInfoDto): String {
+        authenticationDao.createUser(userInfoDto)
+        val userInfo = authenticationDao.getUserInfo(userInfoDto.email)
+        return jwtManager.generateToken(userInfo)
+    }
 }
