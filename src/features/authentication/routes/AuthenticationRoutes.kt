@@ -12,7 +12,9 @@ fun Application.authenticationRoutes() {
     routing {
         loginUser()
         signInUser()
-        createUser()
+        authenticate("auth-admin") {
+            createUser()
+        }
         authenticate("auth-jwt") {
             userInfo()
         }

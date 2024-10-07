@@ -10,5 +10,5 @@ data class UserInfoDto(
     val email: String,
     val id: Long? = null,
     var password: String? = null,
-    val role: String,
+    var role: String? = null,
 )
