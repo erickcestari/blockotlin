@@ -61,16 +61,22 @@ class AuthenticationDaoImpl(private val mapper: AuthenticationMapper) : Authenti
 
         val passwordHash = BCrypt.hashpw(userInfoDto.password, BCrypt.gensalt())
 
+        if (userInfoDto.role == null) {
+            userInfoDto.role = "client"
+        }
+
+        val userRole = enumValueOf<Role>(userInfoDto.role!!.uppercase())
+
         transaction {
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(User)
             User.insert {
-                it[name] = userInfoDto.name
-                it[surname] = userInfoDto.surname
+                it[firstName] = userInfoDto.firstName
+                it[lastName] = userInfoDto.lastName
                 it[email] = userInfoDto.email
                 it[birthDate] = userInfoDto.birthDate
                 it[password] = passwordHash
-                it[role] = Role.CLIENT
+                it[role] = userRole
             }
         }
     }

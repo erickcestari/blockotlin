@@ -1,6 +1,7 @@
 package com.blockotlin.features.authentication.data
 
 import com.blockotlin.features.authentication.dao.AuthenticationDao
+import com.blockotlin.features.authentication.dao.entity.Role
 import com.blockotlin.features.authentication.model.LoginRequestDto
 import com.blockotlin.features.authentication.model.UserInfoDto
 import com.blockotlin.jwt.JwtManager
@@ -22,6 +23,29 @@ class AuthenticationDataImpl(private val authenticationDao: AuthenticationDao, p
     }
 
     override fun createUser(userInfoDto: UserInfoDto) {
+        if (userInfoDto.password == null) {
+            throw InvalidParameterException("Password is required")
+        }
+
+        if (userInfoDto.password!!.length < 6) {
+            throw InvalidParameterException("Password is too short")
+        }
         return authenticationDao.createUser(userInfoDto)
+    }
+
+    override fun signIn(userInfoDto: UserInfoDto): String {
+        if (userInfoDto.password == null) {
+            throw InvalidParameterException("Password is required")
+        }
+
+        if (userInfoDto.password!!.length < 6) {
+            throw InvalidParameterException("Password is too short")
+        }
+
+        userInfoDto.role = Role.CLIENT.toString()
+
+        authenticationDao.createUser(userInfoDto)
+        val userInfo = authenticationDao.getUserInfo(userInfoDto.email)
+        return jwtManager.generateToken(userInfo)
     }
 }
