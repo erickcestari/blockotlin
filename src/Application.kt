@@ -18,6 +18,7 @@ import io.ktor.server.auth.*
 import io.ktor.server.auth.jwt.*
 import io.ktor.server.plugins.callloging.*
 import io.ktor.server.plugins.contentnegotiation.*
+import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
@@ -39,6 +40,21 @@ fun Application.module(testing: Boolean = false) {
     }
 
     val jwtManager: JwtManager by inject(JwtManager::class.java)
+
+    install(CORS) {
+        anyHost()
+        allowCredentials = true
+        allowHeader(HttpHeaders.ContentType)
+        allowHeader(HttpHeaders.Authorization)
+        allowMethod(HttpMethod.Options)
+        allowMethod(HttpMethod.Put)
+        allowMethod(HttpMethod.Delete)
+        allowMethod(HttpMethod.Patch)
+        allowMethod(HttpMethod.Post)
+        allowMethod(HttpMethod.Get)
+        allowNonSimpleContentTypes = true
+        maxAgeInSeconds = 3600
+    }
 
     install(Authentication) {
         jwt("auth-jwt") {
