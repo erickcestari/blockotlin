@@ -11,7 +11,7 @@ import org.koin.java.KoinJavaComponent.inject
 fun Route.userInfo() {
     val authenticationData: AuthenticationData by inject(AuthenticationData::class.java)
     val jwtManager: JwtManager by inject(JwtManager::class.java)
-    get("/api/v1/authentication/userInfo") {
+    get("/api/v1/authentication/user-info") {
         call.respond(authenticationData.getUserInfo(jwtManager.getUsernameFromToken(call.getAuthorizationTokenWithoutBearer())!!))
     }
 }

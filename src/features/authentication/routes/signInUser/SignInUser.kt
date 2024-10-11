@@ -12,7 +12,7 @@ import org.koin.java.KoinJavaComponent.inject
 
 fun Route.signInUser() {
     val authenticationData: AuthenticationData by inject(AuthenticationData::class.java)
-    post("/public-api/v1/authentication/signIn") {
+    post("/public-api/v1/authentication/signup") {
         val request = call.receive<UserInfoDto>()
         val token = authenticationData.signIn(request)
         call.response.cookies.append(
