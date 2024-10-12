@@ -10,6 +10,7 @@ import com.blockotlin.features.authentication.di.authenticationModule
 import com.blockotlin.features.healthcheck.di.healthCheckModule
 import com.blockotlin.features.product.di.productModule
 import com.blockotlin.jwt.JwtManager
+import com.blockotlin.utils.DatabaseFactory
 import io.ktor.http.*
 import io.ktor.http.auth.*
 import io.ktor.serialization.jackson.*
@@ -33,6 +34,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused") // Referenced in application.conf
 fun Application.module(testing: Boolean = false) {
+    DatabaseFactory.init()
 
     install(Koin) {
         SLF4JLogger()

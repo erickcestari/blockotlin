@@ -15,7 +15,6 @@ class ProductDaoImpl(private val mapper: ProductMapper) : ProductDao {
 
         return transaction {
             addLogger(StdOutSqlLogger)
-            SchemaUtils.create(Product)
             val generatedId = Product.insert {
                 it[name] = request.name
                 it[description] = request.description
@@ -32,7 +31,6 @@ class ProductDaoImpl(private val mapper: ProductMapper) : ProductDao {
 
         return transaction {
             addLogger(StdOutSqlLogger)
-            SchemaUtils.create(Product)
             val query = Product.selectAll()
 
             if (request.name != null) {
