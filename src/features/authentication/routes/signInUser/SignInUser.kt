@@ -22,7 +22,6 @@ fun Route.signInUser() {
                 httpOnly = true,
                 path = "/",
                 maxAge = 3600,
-                secure = true,
             )
         )
 
