@@ -66,7 +66,7 @@ fun Application.module(testing: Boolean = false) {
             }
 
             authHeader { call ->
-                val cookieValue = call.request.cookies["token"] ?: return@authHeader null
+                val cookieValue = call.request.cookies["token"] ?: call.request.authorization()?.substring(7)
                 try {
                     parseAuthorizationHeader("Bearer $cookieValue")
                 } catch (cause: IllegalArgumentException) {
@@ -86,7 +86,7 @@ fun Application.module(testing: Boolean = false) {
             }
 
             authHeader { call ->
-                val cookieValue = call.request.cookies["token"] ?: return@authHeader null
+                val cookieValue = call.request.cookies["token"] ?: call.request.authorization()?.substring(7)
                 try {
                     parseAuthorizationHeader("Bearer $cookieValue")
                 } catch (cause: IllegalArgumentException) {
