@@ -11,7 +11,7 @@ import org.koin.java.KoinJavaComponent.inject
 
 fun Route.createProduct() {
     val productData: ProductData by inject(ProductData::class.java)
-    post("/api/v1/product/createProduct") {
+    post("/api/v1/product/create-product") {
 
         val id = productData.createProduct(call.receive<CreateProductDto>())
         call.respond(HttpStatusCode.Created, mapOf("id" to id))
