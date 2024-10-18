@@ -49,7 +49,7 @@ class ProductDaoImpl(private val mapper: ProductMapper) : ProductDao {
             val query = Product.selectAll().andWhere { Product.isDeleted eq false }
 
             if (request.name != null) {
-                query.andWhere { Product.name like "%${request.name}%" }
+                query.andWhere { Product.name.lowerCase() like "%${request.name.lowercase()}%" }
             }
 
             query.map { row ->
