@@ -21,6 +21,10 @@ class ProductDataImpl(private val productDao: ProductDao) :
         return productDao.updateProduct(id, request)
     }
 
+    override fun findProductById(id: Long): ProductInfoDto? {
+        return productDao.findProductById(id)
+    }
+
     override fun deleteProduct(id: Long): Boolean {
         return productDao.deleteProduct(id)
     }

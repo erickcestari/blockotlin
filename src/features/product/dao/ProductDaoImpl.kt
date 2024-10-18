@@ -8,6 +8,7 @@ import com.blockotlin.features.product.model.FilterProductsDto
 import com.blockotlin.features.product.model.ProductInfoDto
 import com.blockotlin.features.product.model.UpdateProductDto
 import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class ProductDaoImpl(private val mapper: ProductMapper) : ProductDao {
@@ -52,6 +53,19 @@ class ProductDaoImpl(private val mapper: ProductMapper) : ProductDao {
             }
 
             query.map { row ->
+                mapper.fromProductDaoToProductInfo(row)
+            }
+        }
+    }
+
+    override fun findProductById(id: Long): ProductInfoDto? {
+        Database.connectToExampleDatabase()
+
+        return transaction {
+            addLogger(StdOutSqlLogger)
+            val query = Product.select { Product.id eq id }.singleOrNull()
+
+            query?.let { row ->
                 mapper.fromProductDaoToProductInfo(row)
             }
         }

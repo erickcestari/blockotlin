@@ -8,6 +8,7 @@ import com.blockotlin.features.product.model.UpdateProductDto
 interface ProductDao {
     fun createProduct(request: CreateProductDto): Long
     fun listProduct(request: FilterProductsDto): List<ProductInfoDto>
+    fun findProductById(id: Long): ProductInfoDto?
     fun updateProduct(id: Long, request: UpdateProductDto): Boolean
     fun deleteProduct(id: Long): Boolean
 }
