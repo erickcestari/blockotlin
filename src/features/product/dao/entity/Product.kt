@@ -8,6 +8,7 @@ object Product : Table("product") {
     val price = long("price")
     val description = varchar("description", 555)
     val image = varchar("image", 255).nullable()
+    val isDeleted = bool("isDeleted").default(false)
 
     override val primaryKey = PrimaryKey(id)
 }

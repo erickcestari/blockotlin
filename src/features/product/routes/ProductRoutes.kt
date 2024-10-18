@@ -1,6 +1,7 @@
 package com.blockotlin.features.product.routes
 
 import com.blockotlin.features.product.routes.createProduct.createProduct
+import com.blockotlin.features.product.routes.deleteProduct.deleteProduct
 import com.blockotlin.features.product.routes.listProduct.listProduct
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -11,6 +12,7 @@ fun Application.productRoutes() {
         listProduct()
         authenticate("auth-admin") {
             createProduct()
+            deleteProduct()
         }
     }
 }
