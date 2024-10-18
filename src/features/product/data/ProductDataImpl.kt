@@ -17,7 +17,7 @@ class ProductDataImpl(private val productDao: ProductDao) :
         return productDao.listProduct(request)
     }
 
-    override fun updateProduct(id: Long, request: UpdateProductDto) {
+    override fun updateProduct(id: Long, request: UpdateProductDto): Boolean {
         return productDao.updateProduct(id, request)
     }
 

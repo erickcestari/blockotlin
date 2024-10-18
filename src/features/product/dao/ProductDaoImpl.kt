@@ -57,17 +57,19 @@ class ProductDaoImpl(private val mapper: ProductMapper) : ProductDao {
         }
     }
 
-    override fun updateProduct(id: Long, request: UpdateProductDto) {
+    override fun updateProduct(id: Long, request: UpdateProductDto): Boolean {
         Database.connectToExampleDatabase()
 
-        transaction {
+        return transaction {
             addLogger(StdOutSqlLogger)
-            Product.update({ Product.id eq id }) {
+            val rowsUpdated = Product.update({ Product.id eq id }) {
                 it[name] = request.name
                 it[description] = request.description
                 it[price] = request.price
                 it[image] = request.image
             }
+
+            rowsUpdated > 0
         }
     }
 }
