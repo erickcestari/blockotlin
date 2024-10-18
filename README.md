@@ -49,9 +49,6 @@ development.
 
 This will start the Ktor server, and you can access the API at `http://localhost:8081`.
 
-# Architecture
-![github (6)](https://user-images.githubusercontent.com/86873858/131125468-99d372c5-2b55-473b-9f12-0fbd2c7e9bf7.png)
-
 # Database Credentials (Please add your PostgreSQL credentials here to connect to your database)
 resources/application.conf
 
@@ -77,7 +74,4 @@ resources/application.conf
 **GET /api/v1/authentication/userInfo** (Needs Authorization token from login as Authorization header : "Bearer
 $token")</br>
 &nbsp; Returns the user information</br>
-## - Star Wars
 
-**GET /api/v1/star-wars/movie** (Needs Authorization token from login as Authorization header : "Bearer $token")</br>
-&nbsp; An External API call example. Returns a movie information from an external api
