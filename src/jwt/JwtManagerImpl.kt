@@ -15,8 +15,10 @@ class JwtManagerImpl(secret: String) : JwtManager, KoinComponent {
     override fun getVerifier(): JWTVerifier = JWT.require(algorithm).build()
 
     override fun generateToken(userInfoDto: UserInfoDto): String = JWT.create()
-        .withSubject("Authentication")
+        .withSubject(userInfoDto.id.toString())
         .withClaim("userId", userInfoDto.id)
+        .withClaim("firstName", userInfoDto.firstName)
+        .withClaim("lastName", userInfoDto.lastName)
         .withClaim("email", userInfoDto.email)
         .withClaim("role", userInfoDto.role)
         .withExpiresAt(getExpiration())
