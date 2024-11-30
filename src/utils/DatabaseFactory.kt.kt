@@ -2,6 +2,7 @@ package com.blockotlin.utils
 
 import com.blockotlin.extensions.connectToExampleDatabase
 import com.blockotlin.features.authentication.dao.entity.User
+import com.blockotlin.features.cart.dao.entity.Cart
 import com.blockotlin.features.product.dao.entity.Product
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -15,7 +16,7 @@ object DatabaseFactory {
 
         transaction {
             addLogger(StdOutSqlLogger)
-            SchemaUtils.create(User, Product)
+            SchemaUtils.create(User, Product, Cart)
         }
     }
 }
