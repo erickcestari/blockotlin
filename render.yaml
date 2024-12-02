@@ -10,4 +10,3 @@ services:
     healthCheckPath: /
     region: oregon
     buildCommand: gradle shadowJar --no-daemon
-    startCommand: java -jar /app/blockotlin.jar
