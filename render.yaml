@@ -1,0 +1,13 @@
+services:
+  - name: blockotlin-service
+    type: web
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: "8081"
+    healthCheckPath: /
+    region: oregon
+    buildCommand: gradle shadowJar --no-daemon
+    startCommand: java -jar /app/blockotlin.jar
