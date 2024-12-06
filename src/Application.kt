@@ -21,6 +21,7 @@ import io.ktor.server.auth.jwt.*
 import io.ktor.server.plugins.callloging.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.plugins.cors.routing.*
+import io.ktor.server.plugins.forwardedheaders.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
@@ -36,6 +37,8 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 @Suppress("unused") // Referenced in application.conf
 fun Application.module(testing: Boolean = false) {
     DatabaseFactory.init()
+
+    install(ForwardedHeaders)
 
     install(Koin) {
         SLF4JLogger()
