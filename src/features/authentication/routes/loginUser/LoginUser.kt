@@ -24,6 +24,7 @@ fun Route.loginUser() {
                 value = token,
                 httpOnly = true,
                 secure = isSecureConnection,
+                domain= ".viniciuscestari.dev",
                 maxAge = 3600,
                 path = "/",
                 extensions = mapOf("SameSite" to "Lax")
