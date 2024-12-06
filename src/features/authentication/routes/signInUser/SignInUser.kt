@@ -5,6 +5,7 @@ import com.blockotlin.features.authentication.model.LoginRequestDto
 import com.blockotlin.features.authentication.model.UserInfoDto
 import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.plugins.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.request.*
@@ -21,12 +22,14 @@ fun Route.signInUser() {
         val request = call.receive<UserInfoDto>()
         val token = authenticationData.signIn(request)
 
+        val isSecureConnection = call.request.origin.scheme == "https"
+
         call.response.cookies.append(
             Cookie(
                 name = "token",
                 value = token,
                 httpOnly = true,
-                secure = true,
+                secure = isSecureConnection,
                 maxAge = 3600,
                 path = "/",
                 extensions = mapOf("SameSite" to "None")
