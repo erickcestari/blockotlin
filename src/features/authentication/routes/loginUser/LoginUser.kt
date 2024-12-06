@@ -14,13 +14,16 @@ fun Route.loginUser() {
     post("/public-api/v1/authentication/login") {
         val request = call.receive<LoginRequestDto>()
         val token = authenticationData.login(request)
+
         call.response.cookies.append(
             Cookie(
                 name = "token",
                 value = token,
                 httpOnly = true,
+                secure = true,
+                maxAge = 3600,
                 path = "/",
-                maxAge = 3600
+                extensions = mapOf("SameSite" to "None")
             )
         )
 
