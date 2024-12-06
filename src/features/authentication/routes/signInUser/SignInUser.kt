@@ -23,12 +23,10 @@ fun Route.signInUser() {
             secure = true,
             maxAge = 3600
         )
-        
+
         cookie.extensions["SameSite"] = "None"
         
         call.response.cookies.append(cookie)
-
-        call.respond(mapOf("token" to token))
 
         call.respond(mapOf("token" to token))
     }
