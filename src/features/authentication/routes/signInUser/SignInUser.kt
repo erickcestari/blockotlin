@@ -23,7 +23,7 @@ fun Route.signInUser() {
                 path = "/",
                 secure = true,
                 maxAge = 3600,
-                sameSite = SameSite.Lax
+                extensions = mapOf("SameSite" to "Lax")
             )
         )
 
