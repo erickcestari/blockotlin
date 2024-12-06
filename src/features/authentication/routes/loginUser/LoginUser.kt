@@ -26,7 +26,7 @@ fun Route.loginUser() {
                 secure = isSecureConnection,
                 maxAge = 3600,
                 path = "/",
-                extensions = mapOf("SameSite" to "None")
+                extensions = mapOf("SameSite" to "Lax")
             )
         )
 
