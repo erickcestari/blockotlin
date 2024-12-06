@@ -21,7 +21,9 @@ fun Route.signInUser() {
                 value = token,
                 httpOnly = true,
                 path = "/",
+                secure = true,
                 maxAge = 3600,
+                sameSite = SameSite.Lax
             )
         )
 
