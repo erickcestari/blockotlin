@@ -15,17 +15,20 @@ fun Route.signInUser() {
     post("/public-api/v1/authentication/signup") {
         val request = call.receive<UserInfoDto>()
         val token = authenticationData.signIn(request)
-        call.response.cookies.append(
-            Cookie(
-                name = "token",
-                value = token,
-                httpOnly = true,
-                path = "/",
-                secure = true,
-                maxAge = 3600,
-                extensions = mapOf("SameSite" to "Lax")
-            )
+        val cookie = Cookie(
+            name = "token",
+            value = token,
+            httpOnly = true,
+            path = "/",
+            secure = true,
+            maxAge = 3600
         )
+        
+        cookie.extensions["SameSite"] = "None"
+        
+        call.response.cookies.append(cookie)
+
+        call.respond(mapOf("token" to token))
 
         call.respond(mapOf("token" to token))
     }
