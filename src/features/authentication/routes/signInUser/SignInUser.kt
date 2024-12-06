@@ -22,7 +22,7 @@ fun Route.signInUser() {
             path = "/",
             secure = true,
             maxAge = 3600,
-            extensions = mapOf("SameSite" to "None")
+            extensions = mapOf("SameSite" to "none")
         )
 
         call.response.cookies.append(cookie)
